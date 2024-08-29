@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 import Workdata from "./mywork";
 import HeaderAnimation from "./animation";
 import Contact from "./contact";
+import Contactres from "./contactres";
+import WorkContainer from "./workElement";
+import Footer from "./footer";
 
 export default function Content() {
   const [work, setWork] = useState(false);
   const [workdata, setWorkdata] = useState(false);
   const [lineTextWidth, setLinetextwidth] = useState(false);
   const [textRemove, setTextremove] = useState(true);
-  // let lineWidth = document.getElementsByClassName("line")[0];
+  // Responsive
+  const [responsive, setresponsive] = useState(false);
+
   if (work) {
     setTimeout(() => {
       setWorkdata(true);
@@ -29,6 +34,7 @@ export default function Content() {
       }, 0.5);
   }
 
+
   return (
     <>
       <div className="main">
@@ -45,29 +51,38 @@ export default function Content() {
                   className={`${
                     lineTextWidth ? "lineTextWidth" : ""}
                    ${textRemove ? "default-line": ""}`}
-                  onClick={() => setWork(false) && setTextremove(false)}
+                  onClick={() => setWork(false) && setTextremove(false)} 
+                  id="lineWidth"
                 >
                   Cancel
                 </h6>
-                <div className={`${
+                <div className={` ${
                     lineTextWidth ? "lineTextWidth" : ""
                   } ${textRemove ? "default-line": ""}`}>
                   <Contact/>
                 </div>
               </div>
               <button
-                className={`nav-contact ${work ? "contact" : ""}`}
+                className={`nav-contact nav-contact-desktop ${work ? "contact" : ""}`}
                 onClick={() => setWork(true)}
               >
                 CONTACT
               </button>
             </a>
           </ul>
-          <HeaderAnimation />
+          {/* Responsive */}
+          <button
+                className={`nav-contact contact-responsive`}
+                onClick={() => setresponsive(!responsive)}
+              >
+                {!responsive ? "CONTACT" : "Cancel"}
+              </button>
         </nav>
+          <Contactres buttonres={`${responsive ? "form-show" : "form-hide"}`}/>
         <Hero />
         {/* <About /> */}
-        {/* <Mywork/> */}
+        <WorkContainer/>
+        <Footer/>
       </div>
     </>
   );
@@ -99,6 +114,10 @@ function Hero() {
     return () => clearInterval(typingInterval);
   }, [displayedText, isTyping, wordIndex, words]);
 
+  //about section function for pc
+
+  const [menupc, activemenupc] = useState(false);
+
   return (
     <>
       <ResponsiveNav />
@@ -108,14 +127,66 @@ function Hero() {
           <p className="gradient-text">{displayedText}</p>
           <span>Developer</span>
         </h1>
+
+        {/* about div */}
+        {/* <div className={`aboutpc ${menupc ? "" : "activeMenupc"}`}> */}
+        <div className={`menupc ${menupc ? "" : "activeMenupc"}`}>
+        
+        <img
+          src="assets/cross.svg"
+          className="res-pc"
+          onClick={() => activemenupc(!menupc)}
+        />
+        <div className="aboutsection">
+          <h2>Devansh Rajput</h2>
+          <img src="assets/footer-bear.jfif" alt="header-image"/>
+          <div className="aboutpara">
+          <p className="about-text">I'm a passionate developer with a strong interest in creating innovative
+            solutions. I'm always looking for ways to improve my skills and stay up-to-date with the
+            latest technologies.</p>
+            <p className="about-text">I'm a strong believer in the importance of collaboration and teamwork
+              in achieving great results. I'm always eager to learn from others and share my own knowledge and
+              experience.</p>
+              <p className="about-text">I'm a creative problem solver with a strong attention to detail
+                and a passion for delivering high-quality results.</p>
+          
+          <div className="myskills">
+            
+             <div className="skillcircle skillImg">
+             <div className="skillinfo skill"></div>
+             </div>
+             <div className="skillcircle skillImg1">
+             <div className="skillinfo skill2"></div>
+             </div>
+             <div className="skillcircle skillImg2">
+             <div className="skillinfo skill3"></div>
+             </div>
+             <div className="skillcircle skillImg3">
+             <div className="skillinfo skill4"></div>
+             </div>
+             <div className="skillcircle skillImg4">
+             <div className="skillinfo skill5"></div>
+             </div>
+             <div className="skillcircle skillImg5">
+             <div className="skillinfo skill6"></div>
+             </div>
+             <div className="skillcircle skillImg6">
+             <div className="skillinfo skill7"></div>
+             </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+      {/* </div> */}
         <a href="#my-work">
-          <button id="hero-project-button" className="btn-none">
+          <button onClick={() => activemenupc(!menupc)} id="hero-project-button" className="btn-none">
             About Me
           </button>
         </a>
       </div>
-      <div className="hero-img">
-        <img src="assets/headimg.png" alt="header-img" />
+      <div className=" no-copy hero-img">
+        <img src="assets/headimg.jpg" className="restric-img" alt="header-img" />
       </div>
     </>
   );
@@ -125,25 +196,55 @@ function ResponsiveNav() {
   let [menu, activemenu] = useState(true);
   return (
     <>
+    <h2 className="resnav">Devansh <span>Rajput</span></h2>
       <div className={`menu ${menu ? "" : "activeMenu"}`}>
+        
         <img
           src="assets/cross.svg"
           className="res-cross"
           onClick={() => activemenu(!menu)}
         />
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Services</li>
-          <li>Contact</li>
-        </ul>
+        <div className="aboutsection">
+          <h2>Devansh Rajput</h2>
+          <img className="about-img" src="assets/footer-bear.jfif" alt="header-image"/>
+          <div className="aboutpara">
+          <p className="about-text">I'm a passionate developer with a strong interest in creating innovative
+            solutions. I'm always looking for ways to improve my skills and stay up-to-date with the
+            latest technologies.</p>
+            <p className="about-text">I'm a strong believer in the importance of collaboration and teamwork
+              in achieving great results. I'm always eager to learn from others and share my own knowledge and
+              experience.</p>
+              <p className="about-text">I'm a creative problem solver with a strong attention to detail
+                and a passion for delivering high-quality results.</p>
+          
+          <div className="myskills">
+            
+             <div className="skillcircle skillImg">
+             <div className="skillinfo skill"></div>
+             </div>
+             <div className="skillcircle skillImg1">
+             <div className="skillinfo skill2"></div>
+             </div>
+             <div className="skillcircle skillImg2">
+             <div className="skillinfo skill3"></div>
+             </div>
+             <div className="skillcircle skillImg3">
+             <div className="skillinfo skill4"></div>
+             </div>
+             <div className="skillcircle skillImg4">
+             <div className="skillinfo skill5"></div>
+             </div>
+             <div className="skillcircle skillImg5">
+             <div className="skillinfo skill6"></div>
+             </div>
+             <div className="skillcircle skillImg6">
+             <div className="skillinfo skill7"></div>
+             </div>
+          </div>
+        </div>
+
+        </div>
       </div>
-      <img
-        src="assets/hamburger.svg"
-        className="res-button res-img"
-        onClick={() => activemenu(!menu)}
-      />
       <button
         id="hero-project-button"
         className="btn-2-none"
@@ -185,24 +286,3 @@ function About() {
   );
 }
 
-function Mywork() {
-  return (
-    <div className="my-work">
-      <h1>MY WORK</h1>
-      {Workdata.map((item, i) => {
-        return (
-          <>
-            <div id={item.imageBackground}></div>
-            <a href={item.imageLink}>
-              <div id={item.imageId}></div>
-            </a>
-            <div id={item.id}>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </div>
-          </>
-        );
-      })}
-    </div>
-  );
-}

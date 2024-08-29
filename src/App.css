@@ -2,12 +2,13 @@
   margin: 0;
   padding: 0;
   border: border-box;
+  user-select: none;
 }
 body{
-  /* background: #171d3d;   */
-  background: #000;
+  background: #171d3d;  
+  /* background: #000; */
 }
-#animationCanvas {
+/* #animationCanvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -15,7 +16,7 @@ body{
   height: 100%;
   pointer-events: none;
   z-index: 1;
-}
+} */
 /* Content.css */
 /* .connection-line {
   position: absolute;
@@ -32,10 +33,22 @@ body{
   pointer-events: none;
 } */
 
+/* Restrict Copy Past  */
+
+.no-copy {
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
+}
+.restrict-img{
+  pointer-events: none;
+}
 .main{
   color: white;
-/* background: #171d3d; */
-background: #000;
+background: #171d3d;
+font-family: teko;
+/* background: #000; */
 height: 100vh;
 width: 100%;
 }
@@ -76,7 +89,7 @@ nav ul li a:hover{
   cursor: pointer;
   border: none;
   position: absolute;
-  z-index: 5;
+  z-index: 99;
   transition: 1s;
   right: 3.5vw;}
 
@@ -84,6 +97,19 @@ nav ul li a:hover{
       margin-top: 85vh;
     }
 
+    /* responsive */
+    .contact-responsive{
+  display: none;
+    }
+
+    .contact-res{
+      width: 80vw;
+      height: 80vh;
+      z-index: 999;
+      position: absolute;
+      right: 1vw;
+      left: 1vw;
+    }
 
   .line{
     width: 0.20vw;
@@ -96,42 +122,50 @@ nav ul li a:hover{
   }
 
   .line-width{
-    width: 0vw;
+    
     background-color: #171d3d;
-    padding: 10px;
+    border-radius: 10px;
   }
   .default-line{
     display: none;
   }
   .lineTextWidth{
     display: block;
-    color: red;
+    color: black;
     font-weight: 700;
     transition: 2s;
     opacity: 1;
   }
+  #lineWidth{
+    float: left;
+    position: absolute;
+    right: 23.5vw;
+    font-size: 1rem;
+    z-index: 5;
+    color: red;
+  }
 
   .lineAnimation{
-      height: 82vh;
+      height: 84.5vh;
       z-index: 100;
   }
 
   /* contact-form */
-  .form {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-  }
   
   .form-container {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 25vw;
+    height: 78.5vh;
+    position: absolute;
+    right: 0vw;
   }
+
+  /* .contact-res{
+    display: none;
+  } */
   
   .email-form {
     display: flex;
@@ -181,7 +215,7 @@ nav ul li a:hover{
 
   @media (min-aspect-ratio: 1/1) {
     .line-width {
-      width: 50vw; /* Width when expanded for aspect ratios where height >= width */
+      width: 28vw; /* Width when expanded for aspect ratios where height >= width */
     }
   }
 
@@ -196,14 +230,15 @@ nav ul li a:hover{
 
   .text{
     margin-top: 33vh;
-    margin-left: 180px;}
+    margin-left: 180px;
+    font-family: teko;}
     
     .text h1{
     font-size: 50px;
-    font-family: SpaceGrotesk;}
+    font-family: teko;}
 
     .text span{
-      font-family: SpaceGrotesk;
+      font-family: teko;
       position: absolute;
       top: 50vh;
       z-index: 5;
@@ -232,21 +267,24 @@ nav ul li a:hover{
     border: none;
     position: absolute;
     top: 60vh;
-    transition: 0.5s;
+    transition: 0.3s;
     z-index: 5;}
     
     #hero-project-button:hover{
-    /* border: 2px solid white; */
-    rotate: 360deg;}
+    box-shadow: #2c3e50;
+    width: 160px;
+    height: 45px;}
+    
     
     .hero-img{
     position: absolute;
     right: 10vw;
-    top: 180px;}
+    top: 180px;
+    z-index: 1;}
     
     .hero-img img{
-    width: 498px;
-    height: 480px;
+    width: 40vw;
+    height: 85vh;
     position: absolute;
     top: -110px;
     right: 9px;
@@ -261,12 +299,13 @@ nav ul li a:hover{
       font-size: 85px;
       top: 35vh;
       z-index: 5;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: teko;
     }
     .menu{
       display: none;
     }
-    .res-button{
+
+    .contact-form{
       display: none;
     }
 
@@ -313,7 +352,220 @@ nav ul li a:hover{
       position: absolute;
       right: 150px;}
 
+      .activeMenupc{
+        top: -100vh !important;
+        transition: 0.5s;
+      }
+      .menupc{
+        width: 50vw;
+        height: 80vh;
+        background: #000;
+        position: absolute;
+        z-index: 999;
+        transition: 0.5s;
+        top: 10vh;
+        left: 24vw;
+      }
 
+      
+      .res-pc{
+        position: absolute;
+        right: 10px;
+        top: 15px;
+        cursor: pointer;
+      }
+
+      .aboutsection{
+        width: 100%;
+        background-color: transparent;
+        height: 100%;
+      }
+
+      .aboutsection img{
+        width: 30%;
+        height: 60%;
+        float: right;
+        margin-top: -15vh;
+      }
+      .aboutsection h2{
+        font-size: 3rem;
+        margin-top: 20vh;
+        margin: 1.5vw;
+      }
+      .aboutpara{
+        margin-top: 50vh;
+        margin: 1.5vw;
+      }
+
+      .myskills{
+        width: 80%;
+        height: 80px;
+        padding-left: 10%;
+        padding-right: 10%;
+        position: absolute;
+        bottom: 10vh;
+        left: 0px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+      .skillcircle{
+        width: 70px;
+        height: 70px;
+        background-color: #007bff;
+        border-radius: 50%;
+      }
+      .skillImg{
+        background-image: url(../public/assets/html-3d.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      
+      .skillImg1{
+        background-image: url(../public/assets/html-3dorg.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .skillImg2{
+        background-image: url(../public/assets/javascript-3d.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .skillImg3{
+        background-image: url(../public/assets/react-3d.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .skillImg4{
+        background-image: url(../public/assets/bootstrap3d.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      
+      .skillImg5{
+        background-image: url(../public/assets/node-3d.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .skillImg6{
+        background-image: url(../public/assets/express-js.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .skillinfo{
+        visibility: hidden; /* Initially hidden */
+        transform: translateX(-8%); /* Center horizontally */
+        top: -40px;
+        width: 82px;
+        height: 30px;
+        position: relative;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 25px;
+        color: goldenrod;
+      }
+      
+      .skill:after{
+        content: "80%";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.3s;
+      }
+      .skill2:after{
+        content: "70%";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.3s;
+      }
+      .skill3:after{
+        content: "80%";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.3s;
+      }
+      .skill4:after{
+        content: "80%";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.3s;
+      }
+      .skill5:after{
+        content: "70%";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.3s;
+      }
+      .skill6:after{
+        content: "50%";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.3s;
+      }
+      .skill7:after{
+        content: "50%";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity 0.3s;
+      }
+      .skillImg:hover .skill {
+        visibility: visible;
+        opacity: 1; /* Fade in */
+        transition: opacity 0.3s;
+    }
+     
+    .skillImg1:hover .skill2 {
+      visibility: visible;
+      opacity: 1; /* Fade in */
+      transition: opacity 0.3s;
+    }
+
+    .skillImg2:hover .skill3 {
+      visibility: visible;
+      opacity: 1; /* Fade in */
+      transition: opacity 0.3s;
+  }
+
+  .skillImg3:hover .skill4 {
+    visibility: visible;
+    opacity: 1; /* Fade in */
+    transition: opacity 0.3s;
+}
+
+.skillImg4:hover .skill5 {
+  visibility: visible;
+  opacity: 1; /* Fade in */
+  transition: opacity 0.3s;
+}
+
+.skillImg5:hover .skill6 {
+  visibility: visible;
+  opacity: 1; /* Fade in */
+  transition: opacity 0.3s;
+}
+.skillImg6:hover .skill7 {
+  visibility: visible;
+  opacity: 1; /* Fade in */
+  transition: opacity 0.3s;
+}
       /* projects */
       #img-background-1{
         position: absolute;
@@ -486,7 +738,7 @@ nav ul li a:hover{
         margin-top: 20px;
         margin-left: 50px;    
         font-family:  Tenor Sans;}
-      
+        
         /* my-work */
 
         .my-work{
@@ -500,11 +752,46 @@ nav ul li a:hover{
     .btn-2-none{
       display: none;
     }
+    .form-show{
+      top: 3vh;
+    }
+
+    .resnav{
+      display: none;
+    }
   /* media */
   @media (max-width: 768px) {
     .main nav ul {
       flex-direction: column;
       align-items: center;
+    }
+
+    .about-img{
+      display: none;
+    }
+
+    .myskills{
+      width: 100%;
+      padding: 0px;
+      flex-wrap: wrap;
+      bottom: 30vh;
+      left: 2vw;
+      justify-content: space-evenly;
+
+    }
+    .skillcircle{
+      width: 50px;
+      height: 50px;
+      margin-right: 35px;
+      margin-top: 50px;
+    }
+
+    .aboutsection h2{
+      margin-top: 7vh;
+    }
+
+    .aboutpara{
+      margin-top: 8vh;
     }
     
 
@@ -521,34 +808,37 @@ nav ul li a:hover{
       display: none;
     }
 
-    nav button{
+    /* nav button{
       display: none;
-    }
+    } */
 
     nav .logo{
       display: none;
     }
 
     .text{
-      margin-left: 0px;
+      margin-left: 3vw;
       width: 100vw;
     }
 
     .gradient-text{
       margin-top: 18vh;
       font-size: 68px;
+      font-family: teko;
     }
     .text h5{
-      top: 48vh;
+      top: 50vh;
     }
     .text span{
       position: absolute;
       z-index: 5;
+      font-family: teko;
       top: 62vh;
     }
 
     #hero-project-button{
       top: 68vh;
+      margin-left: 3vw;
     }
 
     #img-background{
@@ -588,6 +878,23 @@ nav ul li a:hover{
     }
     
     /* active menu */
+
+    .resnav{
+      font-size: 1rem;
+      position: absolute;
+      color: wheat;
+      top: 1vh;
+      left: 1vw;
+      font-family: teko;
+      display: block;
+    }
+    .resnav span{
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
     .res-button{
       display: block;
       position: absolute;
@@ -615,7 +922,7 @@ nav ul li a:hover{
     transition: 0.5s;
     z-index: 101;
     top: 0px;
-    left: -100%;
+    left: -200%;
   }
   .menu ul{
     display: flex;
@@ -633,5 +940,41 @@ nav ul li a:hover{
   #about-signature{
     right: 10px;
   }
-  
+
+  .line{
+    display: none;
+  }
+  .nav-contact-desktop{
+    display: none;
+  }
+  /* .contact-res{
+    display: block;
+  } */
+
+  .contact-responsive{
+    display: block;
+  }
+
+  .contact-form{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80vw;
+    height: 60.5vh;
+    position: relative;
+    left: 4.5vw;
+    z-index: 999;
+    transition: 0.5s;
+    color: #171d3d;
+  }
+  .contact-form{
+    display: block;
+  }
+  .form-show{
+    top: 3vh;
+  }
+  .form-hide{
+    top: -100vh;
+  }
 }

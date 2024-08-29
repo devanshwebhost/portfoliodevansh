@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import App from './App';
+import Seemore from './seemore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+let allroutes = createBrowserRouter(
+  [
+    {
+      path:'/',
+      element:<App/>
+    },
+    {
+      path:'/about-us',
+      element:<Seemore/>
+    },
+  ]
+)
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={allroutes}/>
   </React.StrictMode>
 );
 

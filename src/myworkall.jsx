@@ -1,4 +1,4 @@
-const Workdata = [
+const Workdataall = [
     {
       "id": "project-1-para",
       "title": "Creative Images",
@@ -32,7 +32,23 @@ const Workdata = [
       "imageLink": "https://devanshtestweb.netlify.app",
       "imageId": "card-4-img"
     },
+    {
+        "id": "project-5-para",
+        "title": "Exness.com",
+        "description": "This application is made for mobile this is only a clone of application exness.com this is not a orignal website for orignal website visit exness.com",
+        "imageBackground": "img-background-5",
+        "imageLink": "https://exnessclone.netlify.app",
+        "imageId": "card-5-img"
+      },
+      {
+        "id": "project-6-para",
+        "title": "Editing Wale Bhaiya",
+        "description": "This is a simple portfolio website Editing wale bhaiya, where someone can hire the editor anshu yadav for professional work of editing",
+        "imageBackground": "img-background-6",
+        "imageLink": "https://editingwalebhaiya.netlify.app",
+        "imageId": "card-6-img"
+      },
   ];
   
-  export default Workdata;
+  export default Workdataall;
   
